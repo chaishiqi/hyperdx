@@ -150,7 +150,8 @@ services:
       - db
       - redis
   api:
-    image: ${IMAGE_NAME_HDX}:${IMAGE_VERSION}-api
+          #image: ${IMAGE_NAME_HDX}:${IMAGE_VERSION}-api
+    image: ${IMAGE_NAME}:${IMAGE_VERSION}-api
     container_name: hdx-oss-api
     ports:
       - ${HYPERDX_API_PORT}:${HYPERDX_API_PORT}
@@ -185,12 +186,13 @@ services:
       - db
       - redis
   app:
-    image: ${IMAGE_NAME_HDX}:${IMAGE_VERSION}-app
+          #image: ${IMAGE_NAME_HDX}:${IMAGE_VERSION}-app
+    image: ${IMAGE_NAME}:${IMAGE_VERSION}-app
     container_name: hdx-oss-app
     ports:
       - ${HYPERDX_APP_PORT}:${HYPERDX_APP_PORT}
     environment:
-      NEXT_PUBLIC_API_SERVER_URL: 'http://localhost:8000'
+      NEXT_PUBLIC_API_SERVER_URL: 'http://34.170.100.200:8000'
       HYPERDX_API_KEY: ${HYPERDX_API_KEY}
       NODE_ENV: development
       PORT: ${HYPERDX_APP_PORT}
